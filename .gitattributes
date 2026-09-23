@@ -1,3 +1,8 @@
-# shell 脚本必须 LF —— Android 的 sh 不认 CRLF（\r 会让 if/fi 匹配失败）
+# shell 脚本必须 LF —— Android 的 sh 不认 CRLF（\r 会让 if/fi/do 等语法匹配失败）。
+# 注意：ksu-module/system/bin/vd 是**无扩展名的 shell 脚本**，*.sh 规则匹配不到它，
+# 必须显式列出 —— 漏了它会导致 vd 全部命令报 syntax error: unexpected 'do\r'，
+# 表现为"模块在跑、应用就是调不动"。
 *.sh text eol=lf
 *.prop text eol=lf
+ksu-module/system/bin/vd text eol=lf
+vd text eol=lf
