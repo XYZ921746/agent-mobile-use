@@ -1,0 +1,3 @@
+# shell 脚本必须 LF —— Android 的 sh 不认 CRLF（\r 会让 if/fi 匹配失败）
+*.sh text eol=lf
+*.prop text eol=lf
